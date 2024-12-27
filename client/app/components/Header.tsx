@@ -37,7 +37,7 @@ export const Header = () => {
         <motion.div whileHover={{ scale: 1.1 }} className="text-xl font-bold">
           {"</>"}
         </motion.div>
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-4 gap-2 ">
           {["About", "Skills", "Projects", "Education"].map((item) => (
             <motion.li key={item} whileHover={{ scale: 1.1 }}>
               <a

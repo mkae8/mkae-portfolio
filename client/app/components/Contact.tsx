@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Instagram } from "lucide-react";
+import { Mail, Phone, Github, Instagram, FileDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,18 @@ export const Contact = () => {
     setName("");
     setEmail("");
     setMessage("");
+  };
+
+  const handleDownloadCV = () => {
+    const cvUrl =
+      "https://pinebaatars.s3.us-west-2.amazonaws.com/cv-resumes/temuujin-p8SACY.pdf";
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download =
+      "https://pinebaatars.s3.us-west-2.amazonaws.com/cv-resumes/temuujin-p8SACY.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -81,9 +93,19 @@ export const Contact = () => {
                 rel="noopener noreferrer"
                 className="flex items-center text-primary hover:underline"
               >
-                <Instagram className="mr-2" /> LinkedIn
+                <Instagram className="mr-2" /> Instagram
               </a>
             </div>
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <Button onClick={handleDownloadCV} className="w-[300px]">
+                <FileDown className="mr-2" /> CV
+              </Button>
+            </motion.div>
           </motion.div>
           <motion.div
             className="w-full md:w-1/2"

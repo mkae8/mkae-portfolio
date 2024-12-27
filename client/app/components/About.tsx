@@ -53,12 +53,11 @@ export const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Hi, I m {process.env.NEXT_PUBLIC_NAME || "a software engineer"}{" "}
-            passionate about crafting elegant solutions to complex problems.
-            With a strong foundation in{" "}
-            {process.env.NEXT_PUBLIC_TITLE || "software engineering"}, I
-            specialize in building robust and scalable applications that make a
-            difference.
+            I am Temuujin Batjargal, a software engineer with a background in
+            business administration. With experience working and studying in an
+            international environment in Taiwan, I aim to combine my business
+            and technology knowledge to develop effective and innovative
+            solutions.
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {qualities.map((quality, index) => (

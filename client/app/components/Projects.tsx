@@ -12,7 +12,7 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  images: string[];
   tags: string[];
   liveUrl: string;
   githubUrl: string;
@@ -24,7 +24,21 @@ const projects: Project[] = [
     title: "Pet Adoption",
     description:
       "The Pet Adoption website provides the following features: Users can post information about pets they want to put up for adoption. Users can view detailed information about a pet by clicking on its listing. Users can search and filter pets by type (e.g., cats, dogs, etc.). Users can add, edit, or delete pet listings. After registering on the PetAdopt website, users interested in adopting a pet can submit an adoption request form for their chosen pet.",
-    image: "/pet.png",
+    images: [
+      "/pet.png",
+      "/pet2.png",
+      "/pet3.png",
+      "/pet4.png",
+      "/create.png",
+      "/petemail.png",
+      "/information.png",
+      "/user.png",
+      "/delete.png",
+      "/change.png",
+      "/don.png",
+      "/don2.png",
+      "/don3.png",
+    ],
     tags: [
       "React",
       "Node.js",
@@ -43,7 +57,7 @@ const projects: Project[] = [
     title: "E-commerce",
     description:
       "This E-commerce website is built using React and API integration, offering the following key features Users can view product details such as name, image, price, and description fetched from the API. Users can add selected products to their cart, adjust quantities, and remove items as needed.",
-    image: "/blog.png",
+    images: ["/ecom.png", "/ecom1.png", "/ecom2.png", "/ecom3.png"],
     tags: ["React", "API Integration"],
     liveUrl: "https://commerce-topaz-eta-93.vercel.app/",
     githubUrl: "https://github.com/mkae8/E-commerce",
@@ -53,7 +67,15 @@ const projects: Project[] = [
     title: "Food Delivery",
     description:
       "The Food Delivery project is an online platform that allows users to order food from a variety of restaurants. Users can search for specific dishes and use filters to find their desired food. Each user can register and log in. They also have the option to recover their password. The admin panel allows the addition of new dishes.",
-    image: "/food.png",
+    images: [
+      "/food.png",
+      "/food2.png",
+      "/food3.png",
+      "/pass1.png",
+      "/pass2.png",
+      "/pass3.png",
+      "/pass 4.png",
+    ],
     tags: [
       "React",
       "Next.js",
@@ -71,7 +93,7 @@ const projects: Project[] = [
     title: "Blog",
     description:
       "This project is a blog website developed using Next.js, React.js, and Tailwind CSS. The website uses the fetch function to fetch and display articles from dev.to. The link used to fetch data from the API is https://dev.to/api/articles.",
-    image: "/blog.png",
+    images: ["/blog.png", "/blog1.png", "/blog2.png", "/blog3.png"],
     tags: ["Next.js", "React", "Tailwindcss"],
     liveUrl: "https://blog-mkae.vercel.app/",
     githubUrl: "https://github.com/mkae8/blog",
@@ -92,7 +114,7 @@ const ProjectCard = ({
     >
       <div className="relative h-64">
         <Image
-          src={project.image}
+          src={project.images[0]}
           alt={project.title}
           layout="fill"
           objectFit="cover"
@@ -121,7 +143,10 @@ export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section className="relative min-h-screen py-20 overflow-hidden">
+    <section
+      className="relative min-h-screen py-20 overflow-hidden"
+      id="projects"
+    >
       <div className="absolute inset-0 z-0">
         <TechBackground />
       </div>
