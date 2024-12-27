@@ -172,7 +172,10 @@ const EducationCard = ({ education }: { education: Education }) => {
 
 export const Portfolio = () => {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900 min-h-screen">
+    <section
+      className="py-16 bg-gray-100 dark:bg-gray-900 min-h-screen"
+      id="education"
+    >
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-screen">
         <div className="w-full max-w-3xl space-y-12">
           <div>
