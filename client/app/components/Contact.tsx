@@ -1,112 +1,124 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Mail, Phone, Github, Instagram } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend EMAIL PHONENUMBER
-    console.log("Form submitted:", formState);
-    // Reset form after submission
-    setFormState({ name: "", email: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    toast({
+      title: "Message sent!",
+      description: "Thanks for reaching out. I'll get back to you soon!",
+    });
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
     <section
       id="contact"
-      className="py-16 bg-gradient-to-b h-screen flex items-center from-background to-background/80"
+      className="py-16 bg-gradient-to-b from-background to-secondary/20"
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
         >
-          Get in Touch
+          Contact Me
         </motion.h2>
-        <motion.form
-          className="max-w-lg mx-auto"
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-muted-foreground mb-1"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formState.name}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 bg-secondary/30 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-muted-foreground mb-1"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 bg-secondary/30 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-muted-foreground mb-1"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formState.message}
-              onChange={handleChange}
-              required
-              rows={4}
-              className="w-full px-3 py-2 bg-secondary/30 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md hover:bg-primary/90 transition-colors flex items-center justify-center"
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Send Message
-            <Send size={18} className="ml-2" />
-          </button>
-        </motion.form>
+            <Image
+              src="/pic.jpg"
+              alt="Temuujin Batjargal"
+              width={300}
+              height={300}
+              className="rounded-lg shadow-lg object-contain"
+            />
+            <div className="mt-6 space-y-4">
+              <a
+                href="mailto:mkae.dev@gmail.com"
+                className="flex items-center text-primary hover:underline"
+              >
+                <Mail className="mr-2" /> mkae.dev@gmail.com
+              </a>
+              <a
+                href="tel:+97699484778"
+                className="flex items-center text-primary hover:underline"
+              >
+                <Phone className="mr-2" /> +(976) 99484778
+              </a>
+              <a
+                href="https://github.com/mkae8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:underline"
+              >
+                <Github className="mr-2" /> GitHub
+              </a>
+              <a
+                href="https://www.instagram.com/mkae8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:underline"
+              >
+                <Instagram className="mr-2" /> LinkedIn
+              </a>
+            </div>
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+              <Input
+                type="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Textarea
+                placeholder="Your Message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                rows={4}
+              />
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
+            </form>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

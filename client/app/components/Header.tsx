@@ -38,18 +38,16 @@ export const Header = () => {
           {"</>"}
         </motion.div>
         <ul className="flex space-x-4">
-          {["About", "Skills", "Education", "Projects", "Contact"].map(
-            (item) => (
-              <motion.li key={item} whileHover={{ scale: 1.1 }}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="hover:text-blue-500"
-                >
-                  {item}
-                </a>
-              </motion.li>
-            )
-          )}
+          {["About", "Skills", "Projects", "Education"].map((item) => (
+            <motion.li key={item} whileHover={{ scale: 1.1 }}>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="hover:text-blue-500"
+              >
+                {item}
+              </a>
+            </motion.li>
+          ))}
           <motion.li whileHover={{ scale: 1.1 }} className="flex items-center">
             <button
               onClick={() => setIsDark(!isDark)}
