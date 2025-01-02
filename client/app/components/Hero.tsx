@@ -69,7 +69,7 @@ export const Hero = () => {
           <div className="bg-secondary/30 p-3 sm:p-4 text-left">
             <pre className="text-xs sm:text-sm md:text-base overflow-x-auto">
               <code className="text-primary/80">
-                {`function createInnovation() {
+                {`const createInnovation = () => {
   const skills = [
     'Problem Solving',
     'Clean Code',
