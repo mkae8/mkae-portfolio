@@ -16,6 +16,8 @@ import {
   SiNextdotjs,
   SiClerk,
   SiCloudinary,
+  SiVercel,
+  SiRender,
 } from "react-icons/si";
 
 const skills = [
@@ -32,17 +34,19 @@ const skills = [
   { name: "Clerk", icon: <SiClerk /> },
   { name: "Cloudflare", icon: <FaCloudflare /> },
   { name: "Cloudinary", icon: <SiCloudinary /> },
+  { name: "Vercel", icon: <SiVercel /> },
+  { name: "Render", icon: <SiRender /> },
 ];
 
 export const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-16 bg-gradient-to-b h-screen items-center flex from-background to-background/80"
+      className="py-12 md:py-16 bg-gradient-to-b from-background to-background/80 min-h-screen flex items-center"
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12"
+          className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -50,7 +54,7 @@ export const Skills = () => {
         >
           Tech Stacks
         </motion.h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
@@ -61,16 +65,16 @@ export const Skills = () => {
               viewport={{ once: true }}
             >
               <div
-                className={`bg-opacity-10 rounded-lg p-6 flex flex-col items-center justify-center h-full transition-all duration-300 group-hover:bg-opacity-20 group-hover:shadow-lg`}
+                className={`bg-secondary/10 rounded-lg p-3 md:p-4 lg:p-6 flex flex-col items-center justify-center h-full transition-all duration-300 group-hover:bg-secondary/20 group-hover:shadow-lg`}
               >
                 <span
-                  className="text-4xl mb-2"
+                  className="text-2xl md:text-3xl lg:text-4xl mb-2"
                   role="img"
                   aria-label={skill.name}
                 >
                   {skill.icon}
                 </span>
-                <h3 className="text-lg font-normal text-center">
+                <h3 className="text-sm md:text-base lg:text-lg font-normal text-center">
                   {skill.name}
                 </h3>
               </div>

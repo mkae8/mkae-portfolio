@@ -44,18 +44,18 @@ export const Contact = () => {
     <section
       id="contact"
       ref={ref}
-      className="py-16 bg-gradient-to-b from-background to-secondary/20 overflow-hidden"
+      className="py-12 sm:py-16 bg-gradient-to-b from-background to-secondary/20 overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-5xl font-bold text-center mb-12"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: -50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           Let&apos;s Connect
         </motion.h2>
-        <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
+        <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center justify-center">
           <motion.div
             className="w-full lg:w-1/2 max-w-md"
             initial={{ opacity: 0, x: -100 }}
@@ -67,13 +67,13 @@ export const Contact = () => {
               alt="Temuujin Batjargal"
               width={300}
               height={300}
-              className="rounded-full shadow-2xl object-contain"
+              className="rounded-full shadow-2xl object-contain mx-auto lg:mx-0"
               initial={{ filter: "grayscale(100%)" }}
               animate={isInView ? { filter: "grayscale(0%)" } : {}}
               transition={{ duration: 1 }}
             />
             <motion.div
-              className="mt-8 space-y-4"
+              className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-center lg:text-left"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -101,11 +101,11 @@ export const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-card rounded-2xl shadow-xl p-8">
-              <h3 className="text-3xl font-semibold mb-6">
+            <div className="bg-card rounded-2xl shadow-xl p-6 sm:p-8">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
                 Contact me{"<></> "}
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-sm sm:text-base text-muted-foreground mb-6">
                 I&apos;m a passionate developer with a keen interest in creating
                 beautiful and functional web applications. Whether you&apos;re
                 looking to build a new project or improve an existing one,

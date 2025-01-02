@@ -2,17 +2,22 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { Moon, Sun, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const navItems = ["About", "Skills", "Projects", "Education", "Contact"];
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    const root = window.document.documentElement;
     if (isDark) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
     }
   }, [isDark]);
 
@@ -24,6 +29,10 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <header
@@ -37,29 +46,66 @@ export const Header = () => {
         <motion.div whileHover={{ scale: 1.1 }} className="text-xl font-bold">
           {"</>"}
         </motion.div>
-        <ul className="flex space-x-4 gap-2 ">
-          {["About", "Skills", "Projects", "Education", "Contact"].map(
-            (item) => (
-              <motion.li key={item} whileHover={{ scale: 1.1 }}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="hover:text-blue-500"
-                >
-                  {item}
-                </a>
-              </motion.li>
-            )
-          )}
-          <motion.li whileHover={{ scale: 1.1 }} className="flex items-center">
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="focus:outline-none"
+
+        <ul className="hidden md:flex space-x-4 items-center">
+          {navItems.map((item) => (
+            <motion.li key={item} whileHover={{ scale: 1.1 }}>
+              <a href={`#${item.toLowerCase()}`} className="hover:text-primary">
+                {item}
+              </a>
+            </motion.li>
+          ))}
+          <motion.li whileHover={{ scale: 1.1 }}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleDarkMode}
               aria-label="Toggle dark mode"
             >
-              {isDark ? <FaSun /> : <FaMoon />}
-            </button>
+              {isDark ? (
+                <Sun className="h-[1.2rem] w-[1.2rem]" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem]" />
+              )}
+            </Button>
           </motion.li>
         </ul>
+
+        <div className="md:hidden flex items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleDarkMode}
+            className="mr-2"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? (
+              <Sun className="h-[1.2rem] w-[1.2rem]" />
+            ) : (
+              <Moon className="h-[1.2rem] w-[1.2rem]" />
+            )}
+          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Menu className="h-[1.2rem] w-[1.2rem]" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <nav className="flex flex-col space-y-4 mt-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="text-lg hover:text-primary"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   );
