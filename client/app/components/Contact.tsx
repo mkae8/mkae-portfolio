@@ -53,7 +53,7 @@ export const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Let&apos;s Connect
+          Temuujin Batjargal
         </motion.h2>
         <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center justify-center">
           <motion.div

@@ -59,7 +59,7 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center space-y-4 sm:space-y-6 p-4 sm:p-6 backdrop-blur-sm bg-background/30 rounded-xl shadow-lg max-w-[90%] sm:max-w-md"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
+        <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
           {name}
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">
