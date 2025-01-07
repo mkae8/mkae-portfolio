@@ -23,7 +23,7 @@ const projects: Project[] = [
     id: 1,
     title: "Pet Adoption",
     description:
-      "The Pet Adoption website provides the following features: Users can post information about pets they want to put up for adoption. Users can view detailed information about a pet by clicking on its listing. Users can search and filter pets by type (e.g., cats, dogs, etc.). Users can add, edit, or delete pet listings. After registering on the PetAdopt website, users interested in adopting a pet can submit an adoption request form for their chosen pet.",
+      "The Pet Adoption website provides the following features: Users can post information about pets they want to put up for adoption. Users can view detailed information about a pet by clicking on its listing. Users can search and filter pets by type (e.g., cats, dogs, etc.). Users can add, edit, or delete pet listings. After registering on the PetAdopt website, users interested in adopting a pet can submit an adoption request form for their chosen pet. I worked as a team leader on this project, gaining experience in effectively managing teamwork, time planning, and the development phases.",
     images: [
       "/pet.png",
       "/pet2.png",
