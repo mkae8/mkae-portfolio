@@ -100,7 +100,7 @@ export const Hero = () => {
         </p>
         <div className="relative mx-auto overflow-hidden rounded-lg">
           <div className="bg-secondary/30 p-3 sm:p-4 text-left">
-            <pre className="text-xs sm:text-sm md:text-base overflow-hidden">
+            <pre className="text-xs sm:text-sm md:text-base w-full">
               <code className="text-primary/80">
                 {`const createInnovation = () => {
   const skills = [
@@ -109,7 +109,8 @@ export const Hero = () => {
     'Scalability'
   ];
   
-  return skills.reduce((acc, skill) => {
+  return skills.reduce((acc, skill) => 
+  {
     return acc * implement(skill);
   }, 1);
 }`}
