@@ -22,9 +22,7 @@ export const Footer = () => {
             © {currentYear} Your ideas, our code, one vision.
           </p>
           <div className="mt-2 flex items-center text-muted-foreground">
-            <span>Made with</span>
             <Heart className="w-4 h-4 mx-1 text-red-500" />
-            <span>and React</span>
           </div>
         </div>
       </div>

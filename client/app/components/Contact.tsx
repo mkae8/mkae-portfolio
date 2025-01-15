@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone, Github, Instagram, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactForm } from "./ContactForm";
 
 const ContactLink = ({
   href,
@@ -47,14 +48,6 @@ export const Contact = () => {
       className="py-12 sm:py-16 bg-gradient-to-b from-background to-secondary/20 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: -50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Temuujin Batjargal
-        </motion.h2>
         <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center justify-center">
           <motion.div
             className="w-full lg:w-1/2 max-w-md"
@@ -78,6 +71,9 @@ export const Contact = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
+              <h2 className="text-2xl sm:text-3xl font-semibold">
+                Temuujin Batjargal
+              </h2>
               <ContactLink href="mailto:mkae.dev@gmail.com" icon={Mail}>
                 mkae.dev@gmail.com
               </ContactLink>
@@ -101,9 +97,9 @@ export const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-card rounded-2xl shadow-xl p-6 sm:p-8">
+            <div className="bg-card  p-6 sm:p-8">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
-                Contact me{"<></> "}
+                Contact me
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-6">
                 I&apos;m a passionate developer with a keen interest in creating
@@ -122,6 +118,7 @@ export const Contact = () => {
                   <FileDown className="mr-2" /> Download CV
                 </Button>
               </motion.div>
+              <ContactForm />
             </div>
           </motion.div>
         </div>
