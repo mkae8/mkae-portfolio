@@ -95,7 +95,7 @@ export const ContactForm: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="example@mail.com"
+              placeholder="your-email@mail.com"
             />
           </div>
           <div className="space-y-2">
