@@ -43,7 +43,7 @@ export const ContactForm: React.FC = () => {
     if (!phoneRegex.test(formData.phoneNumber)) {
       toast({
         title: "Алдаа",
-        description: "Имэйл хаяг буруу байна.",
+        description: " Утасны дугаар буруу байна.",
         variant: "destructive",
       });
       setIsSubmitting(false);
@@ -89,7 +89,7 @@ export const ContactForm: React.FC = () => {
           <div className="space-y-2">
             <Label htmlFor="email">Имэйл хаяг</Label>
             <Input
-              type="email"
+              type="text"
               id="email"
               name="email"
               value={formData.email}
