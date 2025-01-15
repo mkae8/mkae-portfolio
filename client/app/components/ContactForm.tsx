@@ -27,6 +27,29 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Алдаа",
+        description: "Имэйл хаяг буруу байна.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    const phoneRegex = /^\d{8}$/;
+
+    if (!phoneRegex.test(formData.phoneNumber)) {
+      toast({
+        title: "Алдаа",
+        description: "Имэйл хаяг буруу байна.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const response = await axios.post(
         `https://portfolio-5jtl.onrender.com/api/send-email`,
