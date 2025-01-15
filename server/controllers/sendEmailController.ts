@@ -77,7 +77,7 @@ export const sendEmailController = async (req: Request, res: Response) => {
                             <!-- Footer -->
                             <tr>
                                 <td style="padding: 30px; background-color: #00466a; text-align: center;">
-                                    <p style="font-size: 14px; color: #ffffff; margin: 0;">© 2023 Таны Компани. Бүх эрх хуулиар хамгаалагдсан.</p>
+                                    <p style="font-size: 14px; color: #ffffff; margin: 0;">© 2025 Таны Компани. Бүх эрх хуулиар хамгаалагдсан.</p>
                                 </td>
                             </tr>
                         </table>
