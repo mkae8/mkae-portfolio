@@ -37,7 +37,7 @@ export const Contact = () => {
 
   const handleDownloadCV = () => {
     const cvUrl =
-      "https://pinebaatars.s3.us-west-2.amazonaws.com/cv-resumes/temuujin-cv-HvCFkT.pdf";
+      "https://pinebaatars.s3.us-west-2.amazonaws.com/cv-resumes/temuujin-gQrjcU.pdf";
     window.open(cvUrl, "_blank");
   };
 
