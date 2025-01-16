@@ -65,7 +65,7 @@ const educationData: Education[] = [
     field: "Web Development",
     year: "2024 - 2025",
     description:
-      "Learned fundamentals of web development including HTML, CSS, JavaScript, and learn MORN, full-stack developer",
+      "Learned fundamentals of web development including HTML, CSS, JavaScript, and learn MERN, full-stack developer",
     achievements: ["Team leader"],
   },
 ];
