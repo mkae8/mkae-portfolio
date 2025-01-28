@@ -99,7 +99,7 @@ export const Contact = () => {
           >
             <div className="bg-card  p-6 sm:p-8">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
-                Contact me
+                📬 Contact me
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-6">
                 I&apos;m a passionate developer with a keen interest in creating

@@ -158,7 +158,7 @@ export const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            My Projects
+            💼 My Projects
           </motion.h2>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"

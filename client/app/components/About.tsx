@@ -43,7 +43,7 @@ export const About = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          About Me
+          🚀 About Me
         </motion.h2>
         <div className="max-w-3xl mx-auto">
           <motion.p
