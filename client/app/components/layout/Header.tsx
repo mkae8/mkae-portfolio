@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import {
   Home,
   User,
-  FolderCode,
+  FolderIcon as FolderCode,
   GraduationCap,
   Presentation,
   CircleUserRound,
@@ -13,7 +13,6 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
@@ -31,6 +30,9 @@ export const Header = () => {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    setIsDark(savedTheme === "dark");
+
     const updateTime = () => {
       const now = new Date();
       setCurrentTime(
@@ -52,8 +54,10 @@ export const Header = () => {
     const root = window.document.documentElement;
     if (isDark) {
       root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [isDark]);
 
@@ -63,7 +67,7 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="bg-white/50 dark:bg-black/50 backdrop-blur-md  dark:border-white/10">
+      <div className="bg-white/50 dark:bg-black/50 backdrop-blur-md dark:border-white/10">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14">
             <div className="text-sm text-black/80 dark:text-white/80">
