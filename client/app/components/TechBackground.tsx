@@ -38,7 +38,7 @@ export const TechBackground = () => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 200,
         interactivity: {
           events: {
             onClick: {
@@ -56,7 +56,7 @@ export const TechBackground = () => {
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: 150,
               duration: 0.4,
             },
           },
@@ -87,7 +87,7 @@ export const TechBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 80,
+            value: 50,
           },
           opacity: {
             value: 0.5,

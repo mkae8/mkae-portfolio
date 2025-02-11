@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code, Coffee, Lightbulb, Rocket } from "lucide-react";
+import DecryptedText from "../ui/DecryptedText";
 
 const qualities = [
   {
@@ -43,7 +44,17 @@ export const About = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          🚀 About Me
+          🚀
+          <DecryptedText
+            text=" About me"
+            animateOn="view"
+            speed={120}
+            maxIterations={30}
+            revealDirection="end"
+            characters="#$%!@%^&*"
+            sequential={true}
+            className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
+          />
         </motion.h2>
         <div className="max-w-3xl mx-auto">
           <motion.p

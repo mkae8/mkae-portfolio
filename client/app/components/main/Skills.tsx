@@ -18,6 +18,7 @@ import {
   SiVercel,
   SiRender,
 } from "react-icons/si";
+import DecryptedText from "../ui/DecryptedText";
 
 const skills = [
   { name: "HTML", icon: <FaHtml5 /> },
@@ -41,7 +42,7 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 md:py-16 bg-gradient-to-b from-background to-background/80 min-h-screen flex items-center"
+      className="py-12 md:py-16 relative overflow-hidden bg-gradient-to-br from-background via-background/90 to-primary/5 min-h-screen flex items-center"
     >
       <div className="container mx-auto px-4">
         <motion.h2
@@ -51,7 +52,17 @@ export const Skills = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          🔨 Tech Stacks
+          🔨
+          <DecryptedText
+            text=" Tech Stacks"
+            animateOn="view"
+            speed={120}
+            maxIterations={30}
+            revealDirection="start"
+            characters="#$%!@%^&*"
+            sequential={true}
+            className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
+          />
         </motion.h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
           {skills.map((skill, index) => (

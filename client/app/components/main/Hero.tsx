@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import DecryptedText from "../ui/DecryptedText";
+
+import ShinyText from "../ui/ShinyText";
 
 const CodeLine = ({ delay }: { delay: number }) => (
   <motion.div
@@ -20,7 +23,7 @@ const FloatingSymbol = ({
   index: number;
 }) => (
   <motion.div
-    className="absolute hidden sm:block text-xl md:text-2xl text-primary/40 font-mono"
+    className="absolute hidden sm:block text-xl md:text-2xl text-primary/70 font-mono"
     animate={{
       y: [0, -10, 0],
       opacity: [0.3, 0.7, 0.3],
@@ -92,12 +95,25 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center space-y-4 sm:space-y-6 p-4 sm:p-6 backdrop-blur-sm bg-background/30 rounded-xl shadow-lg max-w-[90%] sm:max-w-md"
       >
-        <h1 className="text-4xl sm:text-3xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
-          {name}
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">
-          {title}
-        </p>
+        <DecryptedText
+          text={name}
+          animateOn="view"
+          speed={120}
+          maxIterations={30}
+          revealDirection="start"
+          characters="#$%@!?+="
+          sequential={true}
+          className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
+        />
+
+        <div className=" text-lg sm:text-xl md:text-2xl text-muted-foreground">
+          <ShinyText
+            text={title}
+            disabled={false}
+            speed={2}
+            className="custom-class bg-black"
+          />
+        </div>
         <div className="relative mx-auto overflow-hidden rounded-lg">
           <div className="bg-secondary/30 p-3 sm:p-4 text-left">
             <pre className="text-xs sm:text-sm md:text-base w-full">

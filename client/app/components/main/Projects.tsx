@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { TechBackground } from "./TechBackground";
-import { Modal } from "./Modal";
+import { TechBackground } from "../TechBackground";
+import { Modal } from "../utils/Modal";
+import DecryptedText from "../ui/DecryptedText";
 
 interface Project {
   id: number;
@@ -158,7 +159,17 @@ export const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            💼 My Projects
+            👨🏻‍💻
+            <DecryptedText
+              text=" Projects"
+              animateOn="view"
+              speed={120}
+              maxIterations={30}
+              revealDirection="start"
+              characters="#$%!@%^&*"
+              sequential={true}
+              className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
+            />
           </motion.h2>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"

@@ -5,7 +5,8 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone, Github, Instagram, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactForm } from "./ContactForm";
+import { ContactForm } from "../utils/ContactForm";
+import ShinyText from "../ui/ShinyText";
 
 const ContactLink = ({
   href,
@@ -71,9 +72,13 @@ export const Contact = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl font-semibold">
-                Temuujin Batjargal
-              </h2>
+              <ShinyText
+                text="Temuujin Batjargal"
+                disabled={false}
+                speed={2}
+                className=" bg-black text-2xl sm:text-3xl font-semibold"
+              />
+              <h2 className="text-2xl sm:text-3xl font-semibold"></h2>
               <ContactLink href="mailto:mkae.dev@gmail.com" icon={Mail}>
                 mkae.dev@gmail.com
               </ContactLink>

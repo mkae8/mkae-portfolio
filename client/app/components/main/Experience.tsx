@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -10,7 +11,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronDown, ChevronUp, Briefcase, GraduationCap } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface Experience {
   id: number;
@@ -19,6 +20,7 @@ interface Experience {
   period: string;
   description: string;
   responsibilities: string[];
+  logo: string;
 }
 
 interface Education {
@@ -29,19 +31,21 @@ interface Education {
   year: string;
   description: string;
   achievements: string[];
+  logo: string;
 }
 
 const experienceData: Experience[] = [
   {
     id: 1,
-    company: "FedEx Taiwan ",
+    company: "FedEx Taiwan",
     position: "Part-time",
     period: "2020 - 2023",
-    description: "Gained experience in logistics and customer service.",
+    description: "Gained experience in logistics and warehouse associate.",
     responsibilities: [
       "Optimized workflow processes, improved time management, and enhanced team communication.",
       "Oversaw and coordinated freight and delivery operations.",
     ],
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh6WP6mrbgf7EdFzx4LQhRJi7fmR0zFfrh8A&s",
   },
 ];
 
@@ -53,20 +57,22 @@ const educationData: Education[] = [
     field: "Taiwan ",
     year: "2018 - 2023",
     description:
-      "Completed a Bachelor’s degree in Business Administration at Taiwan Kainan University from 2018 to 2023.",
+      "Completed a Bachelor's degree in Business Administration at Taiwan Kainan University from 2018 to 2023.",
     achievements: [
       "Successfully participated in the Mongolian Day event in Taiwan and won a trophy and medal.",
     ],
+    logo: "https://www.edarabia.com/wp-content/uploads/2018/05/kainan-university-taoyuan-taiwan.jpg",
   },
   {
     id: 2,
-    institution: "Pinecone",
+    institution: "Pinecone Academy",
     degree: "Software Engineer Certification",
     field: "Web Development",
     year: "2024 - 2025",
     description:
       "Learned fundamentals of web development including HTML, CSS, JavaScript, and learn MERN, full-stack developer",
     achievements: ["Team leader"],
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4CiTFpFgtgX6gfMv1ILNcPgDic__3g2ukVw&s",
   },
 ];
 
@@ -76,11 +82,22 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
     <Card className="w-full mb-4">
       <CardHeader>
-        <CardTitle className="flex justify-between items-center">
-          <span>{experience.company}</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <img
+              src={experience.logo || "/placeholder.svg"}
+              alt={`${experience.company} logo`}
+              width={64}
+              height={64}
+              className="rounded-full"
+            />
+            <div>
+              <CardTitle>{experience.company}</CardTitle>
+              <CardDescription>{experience.position}</CardDescription>
+            </div>
+          </div>
           <Badge variant="secondary">{experience.period}</Badge>
-        </CardTitle>
-        <CardDescription>{experience.position}</CardDescription>
+        </div>
       </CardHeader>
       <CardContent>
         <p className="mb-2">{experience.description}</p>
@@ -125,10 +142,19 @@ const EducationCard = ({ education }: { education: Education }) => {
   return (
     <Card className="w-full mb-4">
       <CardHeader>
-        <CardTitle className="flex justify-between items-center">
-          <span>{education.institution}</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <img
+              src={education.logo || "/placeholder.svg"}
+              alt={`${education.institution} logo`}
+              width={64}
+              height={64}
+              className="rounded-full"
+            />
+            <CardTitle>{education.institution}</CardTitle>
+          </div>
           <Badge variant="secondary">{education.year}</Badge>
-        </CardTitle>
+        </div>
         <CardDescription>
           {education.degree} in {education.field}
         </CardDescription>
@@ -173,7 +199,7 @@ const EducationCard = ({ education }: { education: Education }) => {
 export const Portfolio = () => {
   return (
     <section
-      className="py-16 bg-gray-100 dark:bg-gray-900 min-h-screen"
+      className="py-16 bg-gray-100 dark:bg-black min-h-screen"
       id="education"
     >
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-screen">
@@ -185,9 +211,8 @@ export const Portfolio = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-6"
             >
-              <Briefcase className="mx-auto h-12 w-12 text-blue-500 mb-4" />
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                Work Experience
+                💼 Work Experience
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
                 My professional journey and accomplishments
@@ -214,9 +239,8 @@ export const Portfolio = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-6"
             >
-              <GraduationCap className="mx-auto h-12 w-12 text-blue-500 mb-4" />
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                Education
+                🎓 Education
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
                 My academic journey and achievements
