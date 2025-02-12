@@ -54,9 +54,9 @@ const skills = [
   {
     name: "Node.js",
     icon: <FaNodeJs className="text-[#339933]" />,
-    percentage: 70,
+    percentage: 80,
   },
-  { name: "Express", icon: <SiExpress />, percentage: 70 },
+  { name: "Express", icon: <SiExpress />, percentage: 85 },
   {
     name: "MongoDB",
     icon: <SiMongodb className="text-[#47A248]" />,
