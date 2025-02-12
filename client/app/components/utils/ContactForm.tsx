@@ -125,7 +125,7 @@ export const ContactForm: React.FC = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#98ff01] text-white hover:bg-purple-500 "
+            className="w-full bg-[#98ff01]/70 text-white hover:bg-purple-500 "
           >
             {isSubmitting ? "Sending your email..." : "Send"}
           </Button>
