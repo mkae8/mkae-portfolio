@@ -73,7 +73,7 @@ const BackgroundBubble = ({ index }: { index: number }) => (
 
 export const Hero = () => {
   const [mounted, setMounted] = useState(false);
-  const name = "Temuujin";
+  const name = "mkae";
   const title = "Software Engineer";
 
   useEffect(() => {

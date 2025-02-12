@@ -1,95 +1,255 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Coffee, Lightbulb, Rocket } from "lucide-react";
+import Image from "next/image";
+import {
+  Code2,
+  Brain,
+  Terminal,
+  GraduationCap,
+  Plane,
+  FileDown,
+} from "lucide-react";
+import ShinyText from "../ui/ShinyText";
 import DecryptedText from "../ui/DecryptedText";
+import { Button } from "@/components/ui/button";
 
-const qualities = [
+const timelineItems = [
   {
-    icon: Code,
-    title: "Clean Coder",
-    description: "I write elegant, efficient, and maintainable code.",
+    year: "2018 - 2023",
+    icon: GraduationCap,
+    title: "Kainan University",
+    description:
+      "Completed a Bachelor's degree in Business Administration at Taiwan Kainan University from 2018 to 2023.",
   },
   {
-    icon: Lightbulb,
-    title: "Problem Solver",
+    year: "2020 - 2023",
+    icon: Plane,
+    title: "FedEx Taiwan",
     description:
-      "I thrive on tackling complex challenges and finding innovative solutions.",
+      "Optimized workflow processes, improved time management, and enhanced team communication, Gained experience in logistics and warehouse associate.",
   },
   {
-    icon: Coffee,
-    title: "Continuous Learner",
+    year: "2024 - 2025",
+    icon: GraduationCap,
+    title: "Pinecone Academy",
     description:
-      "I'm always expanding my skills and staying up-to-date with the latest technologies.",
+      "Learned fundamentals of web development including HTML, CSS, JavaScript, and learn MERN, full-stack developer",
   },
   {
-    icon: Rocket,
-    title: "Performance Enthusiast",
-    description:
-      "I'm passionate about optimizing applications for speed and efficiency.",
+    year: "2024",
+    icon: Terminal,
+    title: "Started Programming",
+    description: "I started learning HTML, CSS, and JavaScript fundamentals",
+    color: "purple-500",
+  },
+  {
+    year: "2025",
+    icon: Code2,
+    title: "Full Stack Development",
+    description: "React, Node.js, and modern web development",
+    color: "purple-500",
+  },
+  {
+    year: "2025",
+    icon: Brain,
+    title: "Advanced Technologies",
+    description: "Learned TypeScript, Next.js, and cloud platforms +",
+    color: "purple-500",
+  },
+];
+
+const stats = [
+  {
+    number: "85%",
+    label: "CREATIVITY",
+  },
+  {
+    number: "95%",
+    label: "PERSISTENCE",
+  },
+  {
+    number: "90%",
+    label: "TEAMWORK",
+  },
+  {
+    number: "80%",
+    label: "SELF-DISCIPLINE",
+  },
+  {
+    number: "97%",
+    label: "GROWTH",
+  },
+  {
+    number: "92%",
+    label: "PRODUCTIVITY",
   },
 ];
 
 export const About = () => {
+  const handleDownloadCV = () => {
+    const cvUrl =
+      "https://pinebaatars.s3.us-west-2.amazonaws.com/cv-resumes/temuujin-gQrjcU.pdf";
+    window.open(cvUrl, "_blank");
+  };
   return (
     <section
+      className="min-h-screen py-20 relative overflow-hidden bg-white dark:bg-black text-black dark:text-white"
       id="about"
-      className="py-16 bg-gradient-to-b from-background to-background/80 min-h-screen flex items-center"
     >
-      <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8"
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          🚀
-          <DecryptedText
-            text=" About me"
-            animateOn="view"
-            speed={120}
-            maxIterations={30}
-            revealDirection="end"
-            characters="#$%!@%^&*"
-            sequential={true}
-            className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
-          />
-        </motion.h2>
-        <div className="max-w-3xl mx-auto">
-          <motion.p
-            className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 text-center px-4 md:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            I am Temuujin Batjargal, a software engineer with a background in
-            business administration. With experience working and studying in an
-            international environment in Taiwan, I aim to combine my business
-            and technology knowledge to develop effective and innovative
-            solutions.
-          </motion.p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            {qualities.map((quality, index) => (
-              <motion.div
-                key={quality.title}
-                className="bg-secondary/30 backdrop-blur-sm rounded-lg p-4 md:p-6 flex flex-col items-center text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                viewport={{ once: true }}
-              >
-                <quality.icon className="w-8 h-8 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
-                <h3 className="text-lg md:text-xl font-semibold mb-2">
-                  {quality.title}
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground">
-                  {quality.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="text-center mb-16 text-6xl text-gray-300">
+            <h2 className="flex flex-col items-center justify-center gap-2">
+              <span className="font-sedgwick text-4xl  text-black dark:text-purple-400">
+                SOMETHING
+              </span>
+              <DecryptedText
+                text="ABOUT ME"
+                animateOn="view"
+                speed={120}
+                maxIterations={30}
+                revealDirection="start"
+                characters="#$%!@%^&*"
+                sequential={true}
+                className="text-6xl font-sedgwick text-black dark:text-[#98ff01]"
+              />
+            </h2>
           </div>
+        </motion.div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center mb-20 md:ml-20">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full md:w-1/2 mb-8 md:mb-0"
+          >
+            <div className="grid grid-cols-3 gap-8 mb-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-4xl md:text-5xl font-bold mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-black dark:text-[#98ff01] text-sm">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-black text-justify dark:text-gray-300 text-xl ">
+              Hello, my name is Batjargal Temuujin. I have a bachelor&apos;s
+              degree in{" "}
+              <ShinyText
+                text="Business Administration"
+                disabled={false}
+                speed={2}
+                className="custom-class bg-black"
+              />{" "}
+              from Kainan University in Taiwan. After returning to Mongolia, I
+              joined the Software Engineering program at{" "}
+              <ShinyText
+                text="Pinecone Academy"
+                disabled={false}
+                speed={2}
+                className="custom-class bg-black"
+              />{" "}
+              , where I gained experience in developing various types of
+              websites. Currently, I am interested in using my Full Stack
+              development knowledge to create user-friendly and effective web
+              solutions.
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
+          >
+            <div className="aspect-square relative rounded-3xl overflow-hidden w-[300px] h-[350px]">
+              <Image
+                src="/Temuujin.jpg"
+                alt="Profile"
+                layout="fill"
+                objectFit="cover"
+                className="grayscale-0 hover:grayscale transition-all duration-300"
+              />
+            </div>
+            <h3 className="text-3xl md:text-3xl mt-2 text-center">
+              <ShinyText
+                text="Temuujin Batjargal"
+                disabled={false}
+                speed={2}
+                className="text-3xl font-bold bg-black"
+              />
+            </h3>
+            <Button
+              onClick={handleDownloadCV}
+              className="w-full bg-black text-white hover:bg-purple-500"
+            >
+              <FileDown className="mr-2" /> Download CV
+            </Button>
+          </motion.div>
+        </div>
+
+        <div className="relative">
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-black/20 dark:bg-[#98ff01]/20" />
+
+          {timelineItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative pl-16 mb-12 last:mb-0"
+            >
+              <div className="absolute left-6 w-4 h-4 rounded-full bg-white dark:bg-black border-2 border-black dark:border-[#98ff01] transform -translate-x-1/2" />
+              <div className="p-6 rounded-lg border-2 border-dashed border-black/20 dark:border-[#98ff01]/20 bg-white dark:bg-black/50 backdrop-blur-sm">
+                <div className="flex items-center mb-2">
+                  <item.icon
+                    className={`w-6 h-6 mr-3 ${
+                      item.color
+                        ? `text-${item.color}`
+                        : "text-black dark:text-[#98ff01]"
+                    }`}
+                  />
+                  <span
+                    className={`font-bold ${
+                      item.color
+                        ? `text-${item.color}`
+                        : "text-black dark:text-white"
+                    }`}
+                  >
+                    {item.year}
+                  </span>
+                </div>
+                <h3
+                  className={`text-xl font-bold mb-2 ${
+                    item.color
+                      ? `text-${item.color}`
+                      : "text-black dark:text-[#98ff01]"
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-black dark:text-gray-400">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

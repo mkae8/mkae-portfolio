@@ -4,6 +4,13 @@ import "./globals.css";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Sedgwick_Ave } from "next/font/google";
+
+const sedgwick = Sedgwick_Ave({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-sedgwick",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sedgwick.variable} antialiased`}
       >
         <Toaster />
         <Header />

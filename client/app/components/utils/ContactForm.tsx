@@ -81,13 +81,13 @@ export const ContactForm: React.FC = () => {
     <Card className="w-full max-w-md mx-auto mt-6">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-center">
-          Холбоо барих
+          Send Email
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Имэйл хаяг</Label>
+            <Label htmlFor="email">Email address</Label>
             <Input
               type="text"
               id="email"
@@ -99,7 +99,7 @@ export const ContactForm: React.FC = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phoneNumber">Утасны дугаар</Label>
+            <Label htmlFor="phoneNumber">Phone Number</Label>
             <Input
               type="tel"
               id="phoneNumber"
@@ -111,7 +111,7 @@ export const ContactForm: React.FC = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Мессеж</Label>
+            <Label htmlFor="message">Message</Label>
             <Textarea
               id="message"
               name="message"
@@ -122,8 +122,12 @@ export const ContactForm: React.FC = () => {
               rows={4}
             />
           </div>
-          <Button type="submit" disabled={isSubmitting} className="w-full">
-            {isSubmitting ? "Илгээж байна..." : "Илгээх"}
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-[#98ff01] text-white hover:bg-purple-500 "
+          >
+            {isSubmitting ? "Sending your email..." : "Send"}
           </Button>
         </form>
       </CardContent>

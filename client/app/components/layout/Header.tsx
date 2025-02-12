@@ -6,7 +6,6 @@ import {
   Home,
   User,
   FolderIcon as FolderCode,
-  GraduationCap,
   Presentation,
   CircleUserRound,
   Menu,
@@ -21,7 +20,6 @@ const navItems = [
   { name: "About", icon: User },
   { name: "Skills", icon: FolderCode },
   { name: "Projects", icon: Presentation },
-  { name: "Education", icon: GraduationCap },
   { name: "Contact", icon: CircleUserRound },
 ];
 

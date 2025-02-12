@@ -1,0 +1,7 @@
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.-rotate-x-12 {
+  transform: rotateX(-12deg);
+}

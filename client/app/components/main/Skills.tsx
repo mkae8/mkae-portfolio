@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import {
   FaHtml5,
@@ -17,84 +18,175 @@ import {
   SiCloudinary,
   SiVercel,
   SiRender,
+  SiPostgresql,
+  SiPython,
+  SiCypress,
+  SiJest,
 } from "react-icons/si";
 import DecryptedText from "../ui/DecryptedText";
 
 const skills = [
-  { name: "HTML", icon: <FaHtml5 /> },
-  { name: "CSS", icon: <FaCss3Alt /> },
-  { name: "Tailwind CSS", icon: <RiTailwindCssFill /> },
-  { name: "JavaScript", icon: <RiJavascriptFill /> },
-  { name: "TypeScript", icon: <SiTypescript /> },
-  { name: "Node.js", icon: <FaNodeJs /> },
-  { name: "Express", icon: <SiExpress /> },
-  { name: "MongoDB", icon: <SiMongodb /> },
-  { name: "Next.js", icon: <SiNextdotjs /> },
-  { name: "React", icon: <FaReact /> },
-  { name: "Clerk", icon: <SiClerk /> },
-  { name: "Cloudflare", icon: <FaCloudflare /> },
-  { name: "Cloudinary", icon: <SiCloudinary /> },
-  { name: "Vercel", icon: <SiVercel /> },
-  { name: "Render", icon: <SiRender /> },
+  {
+    name: "HTML",
+    icon: <FaHtml5 className="text-[#E34F26]" />,
+    percentage: 95,
+  },
+  {
+    name: "CSS",
+    icon: <FaCss3Alt className="text-[#1572B6]" />,
+    percentage: 90,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <RiTailwindCssFill className="text-[#38B2AC]" />,
+    percentage: 90,
+  },
+  {
+    name: "JavaScript",
+    icon: <RiJavascriptFill className="text-[#F7DF1E]" />,
+    percentage: 80,
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript className="text-[#3178C6]" />,
+    percentage: 75,
+  },
+  {
+    name: "Node.js",
+    icon: <FaNodeJs className="text-[#339933]" />,
+    percentage: 70,
+  },
+  { name: "Express", icon: <SiExpress />, percentage: 70 },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb className="text-[#47A248]" />,
+    percentage: 85,
+  },
+  { name: "Next.js", icon: <SiNextdotjs />, percentage: 75 },
+  {
+    name: "React",
+    icon: <FaReact className="text-[#61DAFB]" />,
+    percentage: 70,
+  },
+  {
+    name: "Clerk",
+    icon: <SiClerk className="text-[orange]" />,
+    percentage: 70,
+  },
+  {
+    name: "Cloudflare",
+    icon: <FaCloudflare className="text-[#F38020]" />,
+    percentage: 80,
+  },
+  {
+    name: "Cloudinary",
+    icon: <SiCloudinary className="text-[#3448C5]" />,
+    percentage: 70,
+  },
+  { name: "Vercel", icon: <SiVercel />, percentage: 80 },
+  { name: "Render", icon: <SiRender />, percentage: 80 },
+  {
+    name: "Python",
+    icon: <SiPython className="text-blue-400" />,
+    percentage: 10,
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql className="text-[#61DAFB]" />,
+    percentage: 30,
+  },
+  {
+    name: "Cypress",
+    icon: <SiCypress className="text-green-300" />,
+    percentage: 20,
+  },
+  { name: "Jest", icon: <SiJest className="text-red-300" />, percentage: 20 },
 ];
 
 export const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 md:py-16 relative overflow-hidden bg-gradient-to-br from-background via-background/90 to-primary/5 min-h-screen flex items-center"
+      className="py-12 md:py-16 relative bg-white dark:bg-black overflow-hidden min-h-screen flex items-center"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12"
+          className="text-4xl md:text-4xl font-bold text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
         >
-          🔨
-          <DecryptedText
-            text=" Tech Stacks"
-            animateOn="view"
-            speed={120}
-            maxIterations={30}
-            revealDirection="start"
-            characters="#$%!@%^&*"
-            sequential={true}
-            className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
-          />
+          <div className="text-center mb-16 text-5xl">
+            <h2 className="flex flex-col items-center justify-center gap-2">
+              <span className="font-sedgwick text-4xl text-black dark:text-purple-400 ">
+                ALWAYS LEARNING
+              </span>
+              <DecryptedText
+                text="TECH STACKS"
+                animateOn="view"
+                speed={120}
+                maxIterations={30}
+                revealDirection="start"
+                characters="#$%!@%^&*"
+                sequential={true}
+                className="text-6xl font-sedgwick font-semibold text-black dark:text-[#98ff01]"
+              />
+            </h2>
+          </div>
         </motion.h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="relative group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              className="relative"
             >
-              <div
-                className={`bg-secondary/10 rounded-lg p-3 md:p-4 lg:p-6 flex flex-col items-center justify-center h-full transition-all duration-300 group-hover:bg-secondary/20 group-hover:shadow-lg`}
-              >
-                <span
-                  className="text-2xl md:text-3xl lg:text-4xl mb-2"
-                  role="img"
-                  aria-label={skill.name}
-                >
-                  {skill.icon}
-                </span>
-                <h3 className="text-sm md:text-base lg:text-lg font-normal text-center">
-                  {skill.name}
-                </h3>
+              <div className="p-6 rounded-lg border-2 border-dashed border-black/20 dark:border-[#98ff01]/20 bg-white dark:bg-black/50 backdrop-blur-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{skill.icon}</span>
+                    <h3 className="text-xl font-bold text-black dark:text-white">
+                      {skill.name}
+                    </h3>
+                  </div>
+                  <span
+                    className={`font-bold text-xl ${
+                      skill.percentage >= 50
+                        ? "text-green-500"
+                        : "text-purple-500"
+                    }`}
+                  >
+                    {skill.percentage}%
+                  </span>
+                </div>
+
+                <div className="relative h-2 bg-gray-200 dark:bg-[#98ff01]/10 rounded-full overflow-hidden">
+                  <motion.div
+                    className="absolute left-0 top-0 h-full bg-black dark:bg-white"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.percentage}%` }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <div className="h-1 w-full bg-gray-200 dark:bg-[#98ff01]/10 rounded-full overflow-hidden">
+                    {Array.from({ length: 10 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className={`inline-block h-full w-[10%] ${
+                          i < skill.percentage / 10
+                            ? "bg-gradient-to-r from-purple-500 to-black dark:to-[#98ff01]"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
-              <motion.div
-                className="absolute inset-0 rounded-lg flex items-center justify-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
-              ></motion.div>
             </motion.div>
           ))}
         </div>

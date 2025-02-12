@@ -7,7 +7,6 @@ body {
     "Lucida Sans", Arial, sans-serif;
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,5 +69,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-sedgwick {
+    font-family: var(--font-sedgwick);
   }
 }
