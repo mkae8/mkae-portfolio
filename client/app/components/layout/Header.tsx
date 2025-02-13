@@ -23,18 +23,28 @@ const navItems = [
   { name: "Contact", icon: CircleUserRound },
 ];
 
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return true;
+  return (
+    localStorage.getItem("theme") === "dark" ||
+    (!localStorage.getItem("theme") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+};
+
 export const Header = () => {
-  const [currentTime, setCurrentTime] = useState<string>("");
-  const [isDark, setIsDark] = useState(true);
+  const [currentTime, setCurrentTime] = useState("");
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    setIsDark(savedTheme === "dark");
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
+  useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
       setCurrentTime(
-        now.toLocaleTimeString("en-US", {
+        new Date().toLocaleTimeString("en-US", {
           hour12: false,
           hour: "2-digit",
           minute: "2-digit",
@@ -42,26 +52,10 @@ export const Header = () => {
         })
       );
     };
-
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
-
-  const toggleDarkMode = () => {
-    setIsDark(!isDark);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -72,6 +66,7 @@ export const Header = () => {
               Hello World!
             </div>
 
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1 bg-black/5 dark:bg-white/5 rounded-full px-2 py-1">
               <motion.a
                 href="/"
@@ -95,7 +90,7 @@ export const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={toggleDarkMode}
+                onClick={() => setIsDark((prev) => !prev)}
                 className="text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white"
                 aria-label="Toggle dark mode"
               >
@@ -107,11 +102,12 @@ export const Header = () => {
               </Button>
             </nav>
 
+            {/* Mobile Navigation */}
             <div className="md:hidden flex items-center space-x-2">
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={toggleDarkMode}
+                onClick={() => setIsDark((prev) => !prev)}
                 className="text-black/80 dark:text-white/80"
                 aria-label="Toggle dark mode"
               >
