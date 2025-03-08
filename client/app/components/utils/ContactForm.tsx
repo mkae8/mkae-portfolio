@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import axios from "axios";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -29,11 +29,10 @@ export const ContactForm: React.FC = () => {
 
     const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
     if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Алдаа",
-        description: "Имэйл хаяг буруу байна.",
-        variant: "destructive",
+      toast("Алдаа", {
+        description: "Имэйл хаяг буруу байна",
       });
+
       setIsSubmitting(false);
       return;
     }
@@ -41,10 +40,8 @@ export const ContactForm: React.FC = () => {
     const phoneRegex = /^\d{8}$/;
 
     if (!phoneRegex.test(formData.phoneNumber)) {
-      toast({
-        title: "Алдаа",
-        description: " Утасны дугаар буруу байна.",
-        variant: "destructive",
+      toast("Алдаа", {
+        description: "Утасны дугаар буруу байна.",
       });
       setIsSubmitting(false);
       return;
@@ -52,14 +49,12 @@ export const ContactForm: React.FC = () => {
 
     try {
       const response = await axios.post(
-        `https://portfolio-5jtl.onrender.com/api/send-email`,
+        `https://mkae-portfolio.onrender.com/api/send-email`,
         formData
       );
       if (response.status === 200) {
-        toast({
-          title: "Амжилттай илгээгдлээ",
-          description: "Таны мессеж амжилттай илгээгдлээ!",
-          variant: "default",
+        toast("Амжилттай илгээгдлээ", {
+          description: "аны мессеж амжилттай илгээгдлээ!.",
         });
         setFormData({ email: "", phoneNumber: "", message: "" });
       } else {
@@ -67,10 +62,8 @@ export const ContactForm: React.FC = () => {
       }
     } catch (error) {
       console.log("Error submitting form:", error);
-      toast({
-        title: "Алдаа гарлаа",
+      toast("Алдаа гарлаа", {
         description: "Уучлаарай, алдаа гарлаа. Дахин оролдоно уу.",
-        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -118,14 +111,14 @@ export const ContactForm: React.FC = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              placeholder="Таны мессеж..."
+              placeholder="Your message ... "
               rows={4}
             />
           </div>
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#98ff01]/70 text-white hover:bg-purple-500 "
+            className="w-full bg-purple-500  text-white hover:bg-purple-700 "
           >
             {isSubmitting ? "Sending your email..." : "Send"}
           </Button>

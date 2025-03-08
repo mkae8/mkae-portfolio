@@ -24,17 +24,23 @@ const navItems = [
 ];
 
 const getInitialTheme = () => {
-  if (typeof window === "undefined") return true;
-  return (
-    localStorage.getItem("theme") === "dark" ||
-    (!localStorage.getItem("theme") &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  );
+  if (typeof window !== "undefined") {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme === "dark";
+    }
+    return true;
+  }
+  return true;
 };
 
 export const Header = () => {
   const [currentTime, setCurrentTime] = useState("");
-  const [isDark, setIsDark] = useState(getInitialTheme);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    setIsDark(getInitialTheme());
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -65,8 +71,6 @@ export const Header = () => {
             <div className="text-sm text-black/80 dark:text-white/80">
               Hello World!
             </div>
-
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1 bg-black/5 dark:bg-white/5 rounded-full px-2 py-1">
               <motion.a
                 href="/"
@@ -101,8 +105,6 @@ export const Header = () => {
                 )}
               </Button>
             </nav>
-
-            {/* Mobile Navigation */}
             <div className="md:hidden flex items-center space-x-2">
               <Button
                 variant="ghost"

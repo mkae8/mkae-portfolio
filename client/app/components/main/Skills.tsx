@@ -52,6 +52,11 @@ const skills = [
     percentage: 75,
   },
   {
+    name: "Python",
+    icon: <SiPython className="text-blue-400" />,
+    percentage: 10,
+  },
+  {
     name: "Node.js",
     icon: <FaNodeJs className="text-[#339933]" />,
     percentage: 80,
@@ -62,12 +67,18 @@ const skills = [
     icon: <SiMongodb className="text-[#47A248]" />,
     percentage: 85,
   },
-  { name: "Next.js", icon: <SiNextdotjs />, percentage: 75 },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql className="text-[#61DAFB]" />,
+    percentage: 30,
+  },
   {
     name: "React",
     icon: <FaReact className="text-[#61DAFB]" />,
     percentage: 70,
   },
+  { name: "Next.js", icon: <SiNextdotjs />, percentage: 75 },
+
   {
     name: "Clerk",
     icon: <SiClerk className="text-[orange]" />,
@@ -85,16 +96,7 @@ const skills = [
   },
   { name: "Vercel", icon: <SiVercel />, percentage: 80 },
   { name: "Render", icon: <SiRender />, percentage: 80 },
-  {
-    name: "Python",
-    icon: <SiPython className="text-blue-400" />,
-    percentage: 10,
-  },
-  {
-    name: "PostgreSQL",
-    icon: <SiPostgresql className="text-[#61DAFB]" />,
-    percentage: 30,
-  },
+
   {
     name: "Cypress",
     icon: <SiCypress className="text-green-300" />,
@@ -118,7 +120,7 @@ export const Skills = () => {
         >
           <div className="text-center mb-16 text-5xl">
             <h2 className="flex flex-col items-center justify-center gap-2">
-              <span className="font-sedgwick text-4xl text-black dark:text-purple-400 ">
+              <span className="font-sedgwick  font-extralight text-4xl text-black dark:text-purple-400 ">
                 ALWAYS LEARNING
               </span>
               <DecryptedText
@@ -129,7 +131,7 @@ export const Skills = () => {
                 revealDirection="start"
                 characters="#$%!@%^&*"
                 sequential={true}
-                className="text-6xl font-sedgwick font-semibold text-black dark:text-[#98ff01]"
+                className="text-6xl font-sedgwick font-bold text-black dark:text-[#98ff01]"
               />
             </h2>
           </div>
@@ -141,10 +143,10 @@ export const Skills = () => {
               key={skill.name}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="p-6 rounded-lg border-2 border-dashed border-black/20 dark:border-[#98ff01]/20 bg-white dark:bg-black/50 backdrop-blur-sm">
+              <div className="p-6 rounded-lg border-2 border-dashed border-black/20 dark:border-[#98ff01]/10 bg-white dark:bg-black/50 backdrop-blur-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{skill.icon}</span>
@@ -165,7 +167,7 @@ export const Skills = () => {
 
                 <div className="relative h-2 bg-gray-200 dark:bg-[#98ff01]/10 rounded-full overflow-hidden">
                   <motion.div
-                    className="absolute left-0 top-0 h-full bg-black dark:bg-white"
+                    className="absolute left-0 top-0 h-full bg-black/80 dark:bg-white"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.percentage}%` }}
                     transition={{ duration: 1, delay: index * 0.1 }}

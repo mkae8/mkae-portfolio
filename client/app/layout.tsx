@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { Sedgwick_Ave } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 
 const sedgwick = Sedgwick_Ave({
   weight: "400",

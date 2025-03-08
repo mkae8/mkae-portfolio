@@ -117,7 +117,7 @@ export const About = () => {
                 revealDirection="start"
                 characters="#$%!@%^&*"
                 sequential={true}
-                className="text-6xl font-sedgwick text-black dark:text-[#98ff01]"
+                className="text-6xl font-sedgwick font-bold text-black dark:text-[#98ff01]"
               />
             </h2>
           </div>
@@ -184,7 +184,7 @@ export const About = () => {
                 alt="Profile"
                 layout="fill"
                 objectFit="cover"
-                className="grayscale-0 hover:grayscale transition-all duration-300"
+                className="transition-all duration-300"
               />
             </div>
             <h3 className="text-3xl md:text-3xl mt-2 text-center">
