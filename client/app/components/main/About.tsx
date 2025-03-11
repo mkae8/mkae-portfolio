@@ -112,10 +112,10 @@ export const About = () => {
               <DecryptedText
                 text="ABOUT ME"
                 animateOn="view"
-                speed={120}
+                speed={110}
                 maxIterations={30}
                 revealDirection="start"
-                characters="#$%!@%^&*"
+                characters="爱缘恒悟破晓"
                 sequential={true}
                 className="text-6xl font-sedgwick font-bold text-black dark:text-[#98ff01]"
               />
@@ -156,7 +156,7 @@ export const About = () => {
                 disabled={false}
                 speed={2}
                 className="custom-class bg-black"
-              />{" "}
+              />
               from Kainan University in Taiwan. After returning to Mongolia, I
               joined the Software Engineering program at{" "}
               <ShinyText
@@ -164,7 +164,7 @@ export const About = () => {
                 disabled={false}
                 speed={2}
                 className="custom-class bg-black"
-              />{" "}
+              />
               , where I gained experience in developing various types of
               websites. Currently, I am interested in using my Full Stack
               development knowledge to create user-friendly and effective web

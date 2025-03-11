@@ -109,10 +109,10 @@ export const Projects = () => {
             <DecryptedText
               text="PROJECTS"
               animateOn="view"
-              speed={120}
+              speed={110}
               maxIterations={30}
               revealDirection="start"
-              characters="#$%!@%^&*"
+              characters="爱缘恒悟破晓"
               sequential={true}
               className="text-6xl font-sedgwick text-black dark:text-[#98ff01]"
             />

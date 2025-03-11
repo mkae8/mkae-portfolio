@@ -98,10 +98,10 @@ export const Hero = () => {
         <DecryptedText
           text={name}
           animateOn="view"
-          speed={120}
+          speed={110}
           maxIterations={30}
           revealDirection="start"
-          characters="#$%@!?+="
+          characters="爱缘恒悟破晓"
           sequential={true}
           className="text-5xl sm:text-3xl md:text-3xl font-bold bg-clip-text "
         />
